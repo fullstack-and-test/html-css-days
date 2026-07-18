@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+p,
+p a,
+h1 {
+  color: white;
+}
+
+header {
+  display: grid;
+  height: 100vh;
+  grid-template-areas: "stack";
+  place-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header video {
+  grid-area: stack;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+header .content {
+  grid-area: stack;
+  width: min(30em, 100%);
+  padding: 2rem;
+  color: white;
+  z-index: 1;
+}
+
+.content p {
+  margin: 3em 0 1em 0;
+}
+
+.cta-button {
+  border-radius: 12px;
+  padding: 1em;
+  font-weight: 600;
+  color: white;
+  background-color: darkmagenta;
+  transition: all 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+  transform: scale(1.1);
+}
