@@ -43,6 +43,12 @@ body {
   position: relative;
 }
 
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
 .card::after,
 .card::before {
   content: "";
@@ -50,10 +56,9 @@ body {
   height: 100%;
   width: 100%;
   background-image: conic-gradient(
-    var(--gradient-1),
-    var(--gradient-2),
-    var(--gradient-3),
-    var(--gradient-1)
+    from var(--angle),
+    transparent,
+    var(--gradient-3)
   );
   top: 50%;
   left: 50%;
@@ -61,6 +66,7 @@ body {
   z-index: -1;
   padding: 3px;
   border-radius: 10px;
+  animation: spin 3s linear infinite;
 }
 
 .card::before {
@@ -70,4 +76,13 @@ body {
 
 .card p {
   margin-top: 2em;
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
 }
